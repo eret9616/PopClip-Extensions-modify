@@ -1,6 +1,6 @@
 // #popclip
 // name: ChatGPT App
-// identifier: rebuild ChatGPT App
+// identifier: rebuildChatGPTApp
 // description: Send the text to the ChatGPT App.
 // popclip version: 4586
 // icon: square filled scale=85 iconify:simple-icons:openai
@@ -35,14 +35,13 @@ export const action: ActionFunction<Options> = async (input, options) => {
   }
   pasteboard.text = text;
   popclip.openUrl("chatgpt://");
-  await util.sleep(50);
+  await util.sleep(200);
   if (options.mode === "new") {
     popclip.pressKey("command n");
     await util.sleep(800);
   }
   popclip.openUrl("chatgpt://");
   popclip.pressKey("command v");
-  await util.sleep(100);
   popclip.openUrl("chatgpt://");
   popclip.pressKey("return");
 };
